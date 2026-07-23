@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "photo_film"
+version = "0.1.0"
+description = "Personal batch film-simulation pipeline (Fuji RAW/JPEG -> Kodak Portra 400 + Endura print, via spektrafilm)"
+requires-python = "~=3.13"
+dependencies = [
+    "spektrafilm @ git+https://github.com/andreavolpato/spektrafilm.git",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["photo_film", "photo_film.*"]

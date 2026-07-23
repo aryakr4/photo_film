@@ -1,0 +1,7 @@
+[profiles]
+film = "kodak_portra_400"
+print = "kodak_portra_endura"
+
+[output]
+directory = "~/Downloads"
+bit_depth = 16
