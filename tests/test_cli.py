@@ -35,7 +35,7 @@ def test_run_processes_pending_files_and_reports_summary(tmp_path):
     summary = run(inbox, config, load_fn=_fake_load, simulate_fn=_fake_simulate)
 
     assert summary == {"processed": 1, "already_done": 0, "unsupported": 1, "failed": 0}
-    assert (output_dir / "new_photo_kodak_portra_400_kodak_portra_endura.tif").exists()
+    assert (output_dir / "new_photo_JPG_kodak_portra_400_kodak_portra_endura.tif").exists()
 
 
 def test_run_continues_after_one_file_fails(tmp_path):
@@ -66,5 +66,5 @@ def test_run_continues_after_one_file_fails(tmp_path):
     summary = run(inbox, config, load_fn=_fake_load, simulate_fn=_flaky_simulate)
 
     assert summary == {"processed": 1, "already_done": 0, "unsupported": 0, "failed": 1}
-    assert (output_dir / "good_kodak_portra_400_kodak_portra_endura.tif").exists()
-    assert not (output_dir / "bad_kodak_portra_400_kodak_portra_endura.tif").exists()
+    assert (output_dir / "good_JPG_kodak_portra_400_kodak_portra_endura.tif").exists()
+    assert not (output_dir / "bad_JPG_kodak_portra_400_kodak_portra_endura.tif").exists()

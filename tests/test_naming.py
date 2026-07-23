@@ -30,4 +30,20 @@ def test_output_path_for_builds_expected_name():
         "kodak_portra_400",
         "kodak_portra_endura",
     )
-    assert result == Path("/tmp/downloads/DSCF0892_kodak_portra_400_kodak_portra_endura.tif")
+    assert result == Path("/tmp/downloads/DSCF0892_RAF_kodak_portra_400_kodak_portra_endura.tif")
+
+
+def test_output_path_for_distinguishes_raw_and_jpeg_with_same_stem():
+    raw_output = output_path_for(
+        Path("/tmp/inbox/DSCF0892.RAF"),
+        Path("/tmp/downloads"),
+        "kodak_portra_400",
+        "kodak_portra_endura",
+    )
+    jpeg_output = output_path_for(
+        Path("/tmp/inbox/DSCF0892.JPG"),
+        Path("/tmp/downloads"),
+        "kodak_portra_400",
+        "kodak_portra_endura",
+    )
+    assert raw_output != jpeg_output

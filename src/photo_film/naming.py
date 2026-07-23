@@ -24,4 +24,5 @@ def output_path_for(
     input_path: Path, output_dir: Path, film_profile: str, print_profile: str
 ) -> Path:
     stem = input_path.stem
-    return output_dir / f"{stem}_{film_profile}_{print_profile}.tif"
+    ext_tag = input_path.suffix.lstrip(".").upper()
+    return output_dir / f"{stem}_{ext_tag}_{film_profile}_{print_profile}.tif"

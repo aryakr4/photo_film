@@ -27,7 +27,10 @@ cp /path/to/your/photos/*.RAF raw_inbox/
 ```
 
 Converted TIFFs land directly in `~/Downloads/`, named
-`<original_filename>_kodak_portra_400_kodak_portra_endura.tif`.
+`<original_filename>_<EXT>_kodak_portra_400_kodak_portra_endura.tif` (e.g.
+`DSCF0892_RAF_kodak_portra_400_kodak_portra_endura.tif`). The source
+extension is included so a RAW and JPEG of the same shot (e.g.
+`DSCF0892.RAF` + `DSCF0892.JPG`) never collide on the same output file.
 
 - Supported input formats: Fuji/Canon/Nikon/Sony/etc. RAW
   (`.raf .cr2 .cr3 .nef .arw .dng .rw2 .orf .pef .srw`), JPEG (`.jpg .jpeg`),

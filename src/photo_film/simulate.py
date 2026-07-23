@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 import numpy as np
@@ -37,10 +38,12 @@ def simulate_and_save(
     result = simulate(image, params)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
+    temp_path = output_path.with_name(f".{output_path.stem}.tmp{output_path.suffix}")
     save_image_oiio(
-        str(output_path),
+        str(temp_path),
         result,
         bit_depth=output_bit_depth,
         color_space="sRGB",
         cctf_encoding=True,
     )
+    os.replace(temp_path, output_path)
